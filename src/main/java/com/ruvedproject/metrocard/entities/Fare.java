@@ -1,14 +1,13 @@
 package com.ruvedproject.metrocard.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,4 +20,7 @@ public class Fare implements Serializable {
     private String passengerType;
     @Column(name = "price")
     private long price;
+    @OneToMany(targetEntity = Journey.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "passengerType",referencedColumnName = "passengerType")
+    List<Journey> journey;
 }

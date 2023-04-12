@@ -38,7 +38,7 @@ public class MetroCardServiceImpl implements MetroCardService {
 //        journey.setPassengerType("half");
         //long fare=mcFareRepo.getFareByPassengerType(journey.getPassengerType()).getPrice();
         long charge=0;
-        System.out.println(journey.getMetroCard().getMetroId());
+        //System.out.println(journey);
         journey.setCharge(charge);
         mcCheckInRepo.save(journey);
     }

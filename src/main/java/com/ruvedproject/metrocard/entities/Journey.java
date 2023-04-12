@@ -28,9 +28,6 @@ public class Journey implements Serializable {
     @Column(name="from")
     private String from;
 
-    @ManyToOne(targetEntity = MetroCard.class)
-    @JoinColumn(name = "metroId", nullable = false)
-    private MetroCard  metroCard;
 
     @ManyToOne(targetEntity = Fare.class)
     @JoinColumn(name="passengerType")
@@ -40,4 +37,6 @@ public class Journey implements Serializable {
     private Date date;
     @Column (name="charge")
     private Long charge;
+    @Column(name = "metroId")
+    private String metroId;
 }

@@ -6,6 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,7 +20,11 @@ public class MetroCard implements Serializable {
     @Column(name="id")
     private String metroId;
 
-
     @Column(name="balance")
     private Long balance;
+
+
+    @OneToMany(targetEntity = Journey.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "metroId",referencedColumnName = "id")
+    List<Journey> journeyList;
 }
