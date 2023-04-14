@@ -29,7 +29,7 @@ public class Journey implements Serializable {
     private String from;
 
 
-    @ManyToOne(targetEntity = Fare.class)
+    @ManyToOne(targetEntity = Fare.class,cascade = CascadeType.ALL)
     @JoinColumn(name="passengerType")
     private Fare fare;
 
@@ -37,6 +37,8 @@ public class Journey implements Serializable {
     private Date date;
     @Column (name="charge")
     private Long charge;
-    @Column(name = "metroId")
-    private String metroId;
+
+    @ManyToOne(targetEntity = MetroCard.class,cascade = CascadeType.ALL)
+    @JoinColumn(name="metroId")
+    MetroCard card;
 }

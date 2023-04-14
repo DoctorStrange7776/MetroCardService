@@ -23,8 +23,6 @@ public class MetroCard implements Serializable {
     @Column(name="balance")
     private Long balance;
 
-
-    @OneToMany(targetEntity = Journey.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "metroId",referencedColumnName = "id")
+    @OneToMany(mappedBy = "card",cascade = CascadeType.ALL)
     List<Journey> journeyList;
 }

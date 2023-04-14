@@ -20,7 +20,6 @@ public class Fare implements Serializable {
     private String passengerType;
     @Column(name = "price")
     private long price;
-    @OneToMany(targetEntity = Journey.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "passengerType",referencedColumnName = "passengerType")
-    List<Journey> journey;
+    @OneToMany(mappedBy = "fare",cascade = CascadeType.ALL)
+    List<Journey> journeyList;
 }
